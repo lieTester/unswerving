@@ -1,0 +1,21 @@
+{% extends 'admin_portal/main.html' %} {% load dash_bd_data %}
+{% block userDashboardContent %}
+<div class="articles_repo ">
+    {% include "admin_portal/components/messages.html" %}
+
+</div>
+<div class="articles_repo add-atcls-field">
+    <span class="artcl-add-btn btn-dash"><a href="{% url 'ArticleAddAlter' user.username %}">Add Article+</a></span>
+</div>
+<div class="articles_repo">
+    {% for article in member_artcls %}
+    <ul>
+        <li>
+            <span>A{{forloop.counter}}:</span>
+            <a href="{% url 'ArticleAddAlter' article.Article_Id %}">{{article.Article_Heading}}</a>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+
+{% endblock userDashboardContent %}

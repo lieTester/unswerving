@@ -1,0 +1,17 @@
+<div>
+			<ul class="tags-head-fr-all">
+				<li>
+					<span>Related Topics {{course_name.Exam_Type}}</span>
+				</li>
+			</ul>
+			<ul class="tags-body">
+				{% for relTopic in related_topics %}
+				<li>
+					<a href='{% url "topic-questions" course_name.Exam_Type curnt_sbj.Subj_Type relTopic.Topic_Type %}'
+						class="">
+						{{relTopic|lower|capfirst}}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</div>

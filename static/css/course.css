@@ -1,0 +1,397 @@
+:is(.exam-block, .question-block, .article-block, .allarticle-block, .subject-block) {
+	width: 100%;
+	padding: 25px 0;
+	height: fit-content;
+	min-height: 100vh;
+	background: var(--secondry5);
+}
+:is(.exam-main-block, .exam-side-block, .article-main-block, .allarticle-main-block, .article-side-block, .subject-main-block, .subject-side-block, .question-main-block, .question-side-block) {
+	position: relative;
+	width: 95%;
+	background: var(--primary3);
+	border-radius: 5px;
+	padding: 10px 0px !important;
+	margin: 0px auto 10px;
+	box-shadow: -1px 1px 4px var(--secondry6), 1px -1px 4px var(--secondry6);
+}
+:is(.exam-main-block, .exam-side-block, .article-main-block, .allarticle-main-block, .article-side-block, .subject-main-block, .subject-side-block, .question-main-block, .question-side-block)
+	:is(ul, div) {
+	position: relative;
+	width: 90%;
+	margin: auto;
+	word-wrap: break-word;
+	line-break: loose;
+}
+
+:is(.course-detail, .article-detail, .subject-detail, .question-detail)
+	> :is(p, table) {
+	position: relative;
+	overflow: hidden;
+	font-family: var(--fam3) !important;
+	font-size: var(--font1) !important;
+}
+:is(.course-detail, .article-detail, .subject-detail, .question-detail)
+	> p
+	> :is(strong, span) {
+	font-family: var(--fam3) !important;
+	font-size: var(--font1) !important;
+}
+:is(.course-detail, .article-detail, .subject-detail, .question-detail) > p a {
+	text-decoration: underline !important;
+	color: var(--info) !important;
+	display: inline;
+}
+
+:is(.exam-main-block, .article-main-block, .allarticle-main-block, .question-main-block, .subject-main-block)
+	> :is(ul, div)
+	> span {
+	position: relative;
+	display: inline-block;
+	margin: auto;
+	padding: 8px 2px;
+}
+:is(.exam-main-block, .article-main-block, .allarticle-main-block, .question-main-block, .subject-main-block)
+	> ul
+	> span {
+	font-size: var(--font3);
+	color: var(--secondry2);
+	/* background-color: var(--secondry3); */
+	padding: 4px 2px;
+}
+:is(.exam-main-block, .article-main-block, .allarticle-main-block, .question-main-block, .subject-main-block)
+	> ul
+	> span::after {
+	position: absolute;
+	content: "";
+	height: 4px;
+	bottom: -5px;
+	left: 0;
+	right: 40%;
+	background-color: var(--secondry4);
+}
+:is(.exam-main-block, .article-main-block, .allarticle-main-block, .question-main-block, .subject-main-block)
+	> ul
+	> div {
+	font-size: var(--font1) !important;
+	width: 100%;
+	margin-top: 20px;
+	font-weight: 400;
+	text-align: justify;
+	color: var(--primary4);
+	font-family: var(--fam3) !important;
+	/* background-color: aqua; */
+}
+
+:is(.exam-main-block, .subject-main-block)
+	> :is(.course-all-subjects, .subject-all-topics)
+	> span {
+	margin: 10px 0;
+	border-bottom: 2px solid var(--secondry4);
+}
+:is(.exam-main-block, .article-main-block, .allarticle-main-block, .question-main-block, .subject-main-block)
+	> :is(ul, div)
+	> span::first-letter {
+	text-transform: uppercase;
+}
+
+:is(.exam-main-block, .subject-main-block)
+	> :is(.course-all-subjects, .subject-all-topics)
+	> ul {
+	column-count: 1;
+	height: fit-content;
+	font-size: var(--font1_1);
+	color: var(--primary4);
+}
+
+:is(.exam-main-block, .subject-main-block)
+	> :is(.course-all-subjects, .subject-all-topics)
+	> ul
+	> li {
+	width: fit-content;
+	transition: var(--transL);
+	font-weight: 500;
+}
+:is(.exam-main-block, .subject-main-block)
+	> :is(.course-all-subjects, .subject-all-topics)
+	> ul
+	> li::first-letter {
+	text-transform: uppercase;
+}
+:is(.exam-main-block, .subject-main-block)
+	> :is(.course-all-subjects, .subject-all-topics)
+	> ul
+	> li
+	> a::first-letter {
+	text-transform: uppercase;
+}
+:is(.exam-main-block, .subject-main-block)
+	> :is(.course-all-subjects, .subject-all-topics)
+	> ul
+	> li:hover {
+	/* background-color: red; */
+	color: var(--primary2);
+	font-weight: 700;
+	width: fit-content;
+	cursor: context-menu;
+}
+/* ################################################### */
+/* all side blocks */
+/* ################################################### */
+:is(.exam-side-block, .article-side-block, .question-side-block, .subject-side-block)
+	> div {
+	width: 100%;
+	font-family: var(--fam3);
+	font-weight: 100;
+	font-size: var(--font1);
+	margin-bottom: 30px;
+	/*  */
+}
+:is(.exam-side-block, .article-side-block, .question-side-block, .subject-side-block)
+	> div
+	> ul {
+	margin-bottom: 10px;
+}
+
+.tags-head-fr-all > li {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	font-size: var(--font2);
+	text-align: center;
+}
+
+.tags-head-fr-all > li > span {
+	padding: 0px 12px;
+	border-radius: 2px;
+	font-weight: 900;
+	display: block;
+	letter-spacing: 0.5px;
+	border: 1px solid var(--primary4);
+}
+
+.tags-body {
+	display: flex;
+	/* justify-content: center; */
+	flex-wrap: wrap;
+}
+.tags-body > li {
+	padding: 1px 5px 0px 5px;
+	border-radius: 2px;
+	margin: 3px 2px 0px 0px;
+	color: var(--primary4);
+	background: var(--primary3);
+	border: 1px solid var(--secondry6);
+	transition: var(--transL) !important;
+}
+.tags-body > li:hover {
+	background: var(--success-mbg);
+	color: var(--success-mfg);
+	border: 1px solid var(--success-mfg);
+}
+/* ############################################################################# */
+/* remaining style of quetions */
+/* ############################################################################# */
+
+.single-question-block {
+	width: 100% !important;
+	font-weight: 400;
+	text-align: justify;
+	color: var(--primary4);
+	font-size: var(--font1);
+	border-radius: 4px;
+	background: var(--secondry5);
+	padding: 20px 0;
+	margin: 20px auto !important;
+	box-shadow: -1px 1px 4px var(--secondry6), 1px -1px 4px var(--secondry6);
+}
+.single-question-block > ul > li > p > :is(span, a) {
+	font-weight: 400 !important;
+	text-align: justify !important;
+	color: var(--primary4) !important;
+	font-size: var(--font1) !important;
+}
+.single-question-block > ul > li {
+	font-family: var(--fam3);
+}
+.single-question-block > ul > li:first-child {
+	font-weight: 700;
+	font-size: var(--font1_1);
+}
+.single-question-block > ul {
+	width: 90% !important;
+}
+.question {
+	width: 95% !important;
+	display: flex;
+	/* justify-content: center; */
+	align-items: baseline;
+	align-content: center;
+}
+.question > li:first-child {
+	color: var(--danger);
+}
+.question-opt > li:first-child {
+	color: var(--info);
+}
+.question > li:nth-child(2) {
+	padding-left: 5px;
+	/* margin-bottom: 10px; */
+}
+.question-opt {
+	height: fit-content;
+	margin: 20px 0;
+}
+.question-opt > li:nth-child(2) {
+	margin: auto;
+}
+.question-opt > li:nth-child(2) > label {
+	padding: 2px;
+	margin: 10px;
+	margin-left: 20px;
+}
+.question-expalin-ans {
+	width: 100% !important;
+	position: relative;
+}
+.question-expalin-ans > label {
+	font-weight: 400 !important;
+	display: inline-block;
+	padding: 5px 10px;
+	margin: 2px auto !important;
+	border-radius: 4px;
+	background-color: var(--warning);
+	transition: var(--transL);
+}
+.question-expalin-ans > label:hover {
+	cursor: pointer;
+	color: var(--primary3);
+	background-color: var(--info);
+}
+.question-expalin-ans > li {
+	width: 100% !important;
+	margin: auto;
+	height: 0px;
+	overflow: hidden;
+	visibility: hidden;
+	display: block;
+	transition: var(--transEIO);
+}
+.question-expalin-ans > li > ul {
+	width: 90%;
+	margin: auto;
+}
+.show-hide-ans {
+	display: none;
+}
+.show-hide-ans:checked ~ .ans-block {
+	visibility: visible;
+	height: auto;
+	border: 2px solid var(--success);
+	padding: 15px 2px;
+	border-radius: 4px;
+}
+
+.pagination {
+	height: 40px;
+	/* font-weight: 400; */
+	/* font-family: var(--fam3); */
+	border-top: 3px solid var(--secondry6);
+	padding-top: 10px;
+	font-size: var(--font1);
+}
+.pagination > ul {
+	width: 100%;
+}
+.pagination > ul > li {
+	padding: 4px 12px;
+	float: left;
+	margin: 0px 8px 0px 0px;
+	text-align: center;
+	border-radius: 5px;
+	transition: var(--transL);
+	box-shadow: -1px 1px 4px var(--secondry6), 1px -1px 4px var(--secondry6);
+}
+.transfer-pg {
+	color: var(--primary3);
+	background: var(--danger);
+}
+
+.transfer-pg:hover {
+	background-color: var(--primary4);
+}
+
+/* ############################################################################# */
+/* remaining style of article */
+/* ############################################################################# */
+
+.article-dates > li {
+	display: inline-block;
+	color: var(--secondry4);
+	margin-right: 20px;
+}
+
+.allarticle-main-block .main-articles-block {
+	font-weight: 200 !important;
+	width: 90%;
+	margin: 10px auto !important;
+	padding: none;
+	padding-bottom: 20px !important;
+	box-shadow: none;
+	border-top: 2px solid var(--secondry6);
+	border-radius: 0px !important;
+	/* border-bottom: 2px solid var(--secondry6); */
+}
+.allarticle-main-block .main-articles-block > div {
+	width: 100%;
+	margin: auto;
+}
+.allarticle-main-block .main-articles-block > div > ul {
+	width: 95%;
+}
+
+@media (min-width: 500px) {
+	:is(.exam-main-block, .subject-main-block)
+		> :is(.course-all-subjects, .subject-all-topics)
+		> ul {
+		column-count: 2;
+	}
+	:is(.exam-main-block, .article-main-block, .allarticle-main-block, .question-main-block, .subject-main-block, .subject-side-block, .article-side-block, .exam-side-block, .question-side-block) {
+		width: 80%;
+		padding: 0px;
+	}
+	.question-opt > li:nth-child(2) {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		/* grid-template-rows: repeat(1fr, 2); */
+	}
+}
+@media (min-width: 800px) {
+	:is(.exam-block, .question-block, .article-block, .allarticle-block, .subject-block) {
+		display: flex;
+	}
+	:is(.exam-main-block, .article-main-block, .allarticle-main-block, .question-main-block, .subject-main-block) {
+		width: 68%;
+		margin: 0px;
+		margin-left: auto;
+		padding-bottom: 20px;
+	}
+	:is(.exam-side-block, .article-side-block, .question-side-block, .subject-side-block) {
+		width: 28%;
+		margin: 0px 0px 0px 8px;
+		margin-right: auto;
+		text-align: justify;
+		border-radius: 2px;
+		background-color: inherit;
+		box-shadow: none;
+		/* padding: none; */
+	}
+	:is(.exam-side-block, .article-side-block, .question-side-block, .subject-side-block)
+		> div {
+		padding-left: 10px;
+	}
+}
+@media (min-width: 1100px) {
+	:is(.exam-main-block, .article-main-block, .allarticle-main-block, .question-main-block, .subject-main-block) {
+		width: 60%;
+	}
+}

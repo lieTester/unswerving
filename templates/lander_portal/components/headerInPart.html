@@ -1,0 +1,90 @@
+{% comment %} its a header part we store it in diffrent wat so that we diffrentiate it from  home-nav and other pahes nav in terms of background and look{% endcomment %}
+{% load static %}
+
+<span class="logo">
+	<a href='{% url "home" %}'><img src="{% static '/img/logo/logo.png' %}" alt="" /></a>
+</span>
+<div class="nav-after-800">
+	<ul class="nav-bar-af4-800">
+		<li>
+			Courses
+			<ul class="sub-menu-af4-800">
+				<li class="sub-mn-frst-chld" class={{subMenu}}></li>
+				{% for course in courses %}
+				<li class={{subMenu}}>
+					<a href='{% url "course" course.Exam_Type %}' class="mrgn-auto">
+						{{course.Exam_Type|lower|capfirst}}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</li>
+		<li>
+			MCQ
+			<ul class="sub-menu-af4-800">
+				<li class="sub-mn-frst-chld" class={{subMenu}}></li>
+				{% for subject in subjects %}
+				<li class={{subMenu}}>
+					<a href='{% url "subject" subject.Subj_Type %}' class="mrgn-auto">
+						{{subject.Subj_Type|lower|capfirst}}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</li>
+		<li><a href='{% url "allarticles" %}'>Articles</a></li>
+		<li> <a href='{% url "aboutus" %}'>About us</a> </li>
+	</ul>
+</div>
+<div class="nav-before-800">
+	<span class="menu-bf4-800">
+		<i class="fa fa-bars" onclick="handle_menu()"></i>
+	</span>
+	<ul class="nav-bar-bf4-800">
+		<li class="close-fatimes">
+			<i class="fa fa-times" onclick="handle_menu()"></i>
+		</li>
+		<li>
+			<input type="checkbox" name="sb-mn-ck" id="sub-mn-items1" class="sb-mn-ck" />
+			<label for="sub-mn-items1">
+				Courses<i class="fa fa-chevron-circle-right"></i>
+			</label>
+			<ul class="sub-menu-bf4-800">
+				{% for course in courses %}
+				<li>
+					<a href='{% url "course" course.Exam_Type %}' class="mrgn-auto">
+						{{course.Exam_Type|lower|capfirst}}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</li>
+		<li>
+			<input type="checkbox" name="sb-mn-ck" id="sub-mn-items2" class="sb-mn-ck" />
+			<label for="sub-mn-items2">
+				MCQ <i class="fa fa-chevron-circle-right"></i>
+			</label>
+			<ul class="sub-menu-bf4-800">
+				{% for subject in subjects %}
+				<li>
+					<a href='{% url "subject" subject.Subj_Type %}' class="mrgn-auto">
+						{{subject.Subj_Type|lower|capfirst}}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</li>
+		<input type="checkbox" name="sb-mn-ck" id="sub-mn-items3" class="sb-mn-ck" />
+		<li>
+			<label for="sub-mn-items3">
+				<a href='{% url "allarticles" %}'>Articels</a>
+			</label>
+		</li>
+		<li>
+			<label for="sub-mn-items">
+				<a href='{% url "aboutus" %}'>About us</a>
+
+			</label>
+		</li>
+	</ul>
+</div>

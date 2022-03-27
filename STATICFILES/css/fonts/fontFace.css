@@ -1,0 +1,42 @@
+@font-face {
+	src: url("./AveriaSansLibre-Bold.ttf");
+	font-family: AveriaSansLibre;
+}
+@font-face {
+	src: url("./Cagliostro-Regular.ttf");
+	font-family: Cagliostro;
+}
+@font-face {
+	src: url("./AveriaSansLibre-Regular.ttf");
+	font-family: AveriaSansLibre-Regular;
+}
+
+@font-face {
+	src: url("./Anton-Regular.ttf");
+	font-family: Anton-Regular;
+}
+@font-face {
+	src: url("./FredokaOne-Regular.ttf");
+	font-family: FredokaOne-Regular;
+}
+@font-face {
+	src: url("./Sofia Pro Regular.ttf");
+	font-family: Sofia-Pro-Black;
+}
+
+@font-face {
+	src: url("./Quicksand-VariableFont_wght.ttf");
+	font-family: Quicksand-VariableFont;
+}
+
+
+/*module-4
+
+https://siddartha19.github.io/Coursera-HTML-CSS-and-JavaScript-for-Web-Developers/Assignments/module-4/index.html
+*/
+/*.allarticle-main-block .main-articles-block {
+	font-weight: 200 !important;
+	width: 90%;
+	margin: auto;
+}*/
+/*?id=1&id=2&id=3&id=4*/

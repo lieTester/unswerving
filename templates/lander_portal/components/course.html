@@ -1,0 +1,63 @@
+
+{% extends 'lander_portal/base.html' %} {% load static %} {% load myDataFunct %}
+
+
+{% block header %}
+	{% include "lander_portal/basicHeader.html" with courses=courses  subjects=subjects %}
+{% endblock header %}
+{%block content %}
+
+<section class="exam-block">
+	<div class="exam-main-block">
+		<!-- main-block -->
+		<ul>
+			<span class="course-name" course-name="{{course_name.Exam_Type}}">
+				{{course_name.Exam_Type}}</span>
+			<div class="course-detail">
+				{{course_name.Exam_Desc|safe}}
+			</div>
+		</ul>
+		<div class="course-all-subjects">
+			<span> Subjects to look upon :-</span>
+			<ul>
+				{% for subj in course_subjs %}
+
+					<li style="list-style: disc" class="iterate_subj_topics" subj-id="{{subj.Subj_Id}}"
+						subject-name="{{subj.Subj_Type}}">
+					{% if subj == curnt_sbj %}
+						<a href="?subjreq={{subj.Subj_Id}}" class="highlite-crs-subj-topic"> {{subj}} </a>
+					{% else %}
+						<a href="?subjreq={{subj.Subj_Id}}"> {{subj}} </a>
+					{% endif %}
+					</li>
+
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="subject-all-topics">
+			<span class="subj-topic">{{curnt_sbj}} :- </span>
+			<ul class="subj-topic-cl">
+				{% for topic in subj_topics %}
+
+				<li style="list-style: disc" class="nowRenderthis" topic-id="{{topic.Topic_Id}}">
+					<a href='{% url "topic-questions" course_name.Exam_Type curnt_sbj.Subj_Type topic.Topic_Type %}'
+						class="mrgn-auto">
+						{{topic}}
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+			{% comment %} below ul for rough {% endcomment %}
+			<ul>
+				<li class="message"></li>
+			</ul>
+		</div>
+	</div>
+	<div class="exam-side-block">
+		{% include "lander_portal/components/subcomponents/sideCoursesSec.html" with courses=courses %}
+		{% include "lander_portal/components/subcomponents/sideCourseRelTopicSec.html" with related_topics=related_topics course_name=course_name %}
+		{% include "lander_portal/components/subcomponents/sideArticleSec.html" with articles=articles %}
+	</div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,67 @@
+{% extends 'lander_portal/base.html' %} {% load static %} 
+{% load myDataFunct %}
+
+{% block header %}
+	{% include "lander_portal/basicHeader.html" with courses=courses  subjects=subjects %}
+{% endblock header %}
+{%block content %}
+
+
+<section class="subject-block">
+    <div class="subject-main-block">
+        <ul>
+            <span class="subject-name" course-name="{{subject_name.Subject_Type}}">{{subj_name}}</span>
+            <div class="subject-detail">
+               {{subject_name.Subject_Desc|safe}}
+            </div>
+        </ul>
+        <div class="subject-all-topics">
+            <span> Have look on your topics to study :-</span>
+            <ul>
+                {% for topic in subj_topics %}
+
+                <li style="list-style: disc" class="iterate-topic-questions" subj-id="{{topic.Topic_Id}}"
+                    subject-name="{{topic.Topic_Type}}">
+                    {% if topic ==  topicpage %}
+                        <a href="?topic_question={{topic.Topic_Id}}" class="highlite-crs-subj-topic">
+                            {{topic}}
+                        </a>
+                    {% else %}
+                        <a href="?topic_question={{topic.Topic_Id}}">
+                        {{topic}}
+                        </a>
+                    {% endif %}
+                </li>
+
+                {% endfor %}
+            </ul>
+        </div>
+        {% include "lander_portal/components/subcomponents/questionBlock.html" with questions=questions topicName=topicpage %}
+        <div class="pagination">
+            <ul>
+                {% if questions.has_previous %}
+                <li class="transfer-pg">
+                    <a href="?topic_question={{topicpage.Topic_Id}}&quespage={{questions.previous_page_number}}">Prev</a>
+                </li>
+                {% endif %}
+                {% if questions.has_previous or questions.has_next%}
+                <li>{{questions.number}}</li>
+                {% endif %}
+                {% if questions.has_next %}
+                <li class="transfer-pg">
+                    <a href="?topic_question={{topicpage.Topic_Id}}&quespage={{questions.next_page_number}}">Next</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="subject-side-block">
+        {% include "lander_portal/components/subcomponents/sideCoursesSec.html" with courses=courses %}
+        {% include "lander_portal/components/subcomponents/sideSubjectsAllSec.html" with subjects=subjects %}
+        {% include "lander_portal/components/subcomponents/sideArticleSec.html" with articles=articles %}
+    </div>
+    </div>
+
+</section>
+{%endblock content %}

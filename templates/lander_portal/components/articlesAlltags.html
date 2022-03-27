@@ -1,0 +1,76 @@
+{% extends 'lander_portal/base.html' %}
+{% load myDataFunct %}
+{% load static %}
+{% block header %}
+	{% include "lander_portal/basicHeader.html" with courses=courses  subjects=subjects %}
+{% endblock header %}
+{% block content %}
+<section class="allarticle-block">
+    <div class="allarticle-main-block">
+        <!-- main-block -->
+        <ul>
+            <span class="subject-name" course-name=""><a href="{% url 'allarticles' %}">Artilces to read:-</a></span>
+            <div class="subject-detail">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
+                animi ut explicabo doloremque minus a optio. Tempora vitae sunt dolorum
+                doloribus accusamus aliquam perspiciatis corrupti repellendus a ea, cum
+                ullam ipsam eum, nulla facere ab magni? Illo, doloribus officia est
+                velit qui accusantium? Provident saepe neque totam fuga fugiat quod
+                placeat ratione, sequi laboriosam nisi optio alias magni tempore commodi
+                vero, aliquam nesciunt dicta expedita quis delectus amet? Facere quam
+                debitis aspernatur necessitatibus quasi ea aut adipisci, porro nobis
+                tempora libero, asperiores dolorem at enim, quos voluptatem eligendi
+                modi et consectetur quibusdam eaque nulla voluptatum sunt aliquam?
+                Adipisci quisquam sint, Magni nostrum adipisci porro sit odit,
+                voluptates consectetur assumenda dolorem similique molestiae laborum.
+                Sint incidunt cum itaque ipsa?
+            </div>
+        </ul>
+        {% for article in articles %}
+        <div class="main-articles-block">
+            <div>
+                <h3 class="article-heading"><a href="{% url 'article' article.Article_Id %}">{{article}}</a></h3>
+                <ul>
+                    <li class="article-brief">
+                        {{article.Article_detail|safe|truncatewords:30}}
+                        <label class="continue" id="{{article.Article_Id}}"> 
+                            <a class="continue" href="{% url 'article' article.Article_Id %}">continue</a> 
+                        </label>
+                    </li>
+                    <li class="tags">
+                        <i class="fas fa-tags"></i>
+                        Tags
+                        {% for tag in article.Tag_Id.all %}
+                        <label style="margin-left:10px;">
+                            <a href="?relatedto={{tag.Tag_Id}}">{{tag}}</a>
+                        </label>
+                        {% endfor %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="pagination">
+            <ul>
+                {% if articles.has_previous %}
+                <li class="transfer-pg">
+                    <a href="?artclpage={{articles.previous_page_number}}">Prev</a>
+                </li>
+                {% endif %} {% if articles.has_next or articles.has_previous %}
+                <li>{{articles.number}}</li>
+                {% endif %} {% if articles.has_next %}
+                <li class="transfer-pg">
+                    <a href="?artclpage={{articles.next_page_number}}">Next</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <div class="article-side-block">
+        
+		{% include "lander_portal/components/subcomponents/sideArticlesTagAllSec.html" with tags=tags %}
+		{% include "lander_portal/components/subcomponents/sideTopicsAllSec.html" with topics=topics %}
+        
+    </div>
+</section>
+{% endblock content %}

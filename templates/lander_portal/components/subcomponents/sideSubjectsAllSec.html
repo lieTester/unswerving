@@ -1,0 +1,16 @@
+<div>
+            <ul class="tags-head-fr-all">
+                <li>
+                    <span>Viewers also look for these subjects</span>
+                </li>
+            </ul>
+            <ul class="tags-body">
+                {% for subj in subjects %}
+                <li>
+                    <a href='{% url "subject" subj.Subj_Type %}' class="">
+                        {{subj|lower|capfirst}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>

@@ -1,0 +1,81 @@
+{% extends 'admin_portal/main.html' %} 
+{% load dash_bd_data %} 
+{% block userDashboardContent %}
+
+
+<form action="" method="POST" class="Question-add-form">
+	{% csrf_token %} {{Qform.media}}
+
+
+	<div class="data-entry-fields">
+		<!-- " -->
+		{% include "admin_portal/components/messages.html" %}
+		<ul class="form-data-should-hdn" style="display: none;">
+			{{Qform.Exam_Id}}
+			{{Qform.Topic_Id}}
+			{{Qform.Creater_Id}}
+		</ul>
+		<ul class="courses-refered">
+			<label for="">Select Courses Question is for :</label>
+			<input type="text" class="check_data_Nalter" id="for-courses-type" />
+			<input
+				type="checkbox"
+				name="for-course"
+				id="course_all"
+				class="acheck-for-dropdwn"
+			/>
+			<label for="course_all" class="drop-downicon">
+				<i class="fas fa-caret-down"></i>
+			</label>
+			<div class="show-match scroller" id="cs_all">
+				<!-- data is going tome come here with js -->
+				<!-- all courses find this  in js file====>>>>> function makefields(fieldata) -->
+			</div>
+			<div class="create-course-match-tags">
+				<!-- data is going tome come here with js -->
+				<!-- courses are selected find this  in js file====>>>>> function add_icos(e)-->
+			</div>
+		</ul>
+		<ul class="choose-Topics">
+			<label for="">Select Topic Question represents :</label>
+			<input type="text" class="check_data_Nalter" id="for-topics-type" />
+			<input
+				type="checkbox"
+				name="for-topic"
+				id="topics_all"
+				class="acheck-for-dropdwn"
+			/>
+			<label for="topics_all" class="drop-downicon">
+				<i class="fas fa-caret-down"></i>
+			</label>
+			<div class="show-match scroller" id="ts_all">
+				<!-- data is going tome come here with js -->
+				<!-- all topics find this  in js file====>>>>> function makefields(fieldata)-->
+			</div>
+			<div class="create-topics-match-tags">
+				<!-- data is going tome come here with js -->
+				<!-- topics are selected find this  in js file====>>>>> function add_icos(e)-->
+			</div>
+		</ul>
+		<ul class="question-detail">
+			<label for="">{{Qform.Question_detail.label}} :</label>
+			{{Qform.Question_detail}}
+		</ul>
+		<ul class="question-options">
+			<label for="">{{Qform.Question_Options.label}} :</label>
+			{{Qform.Question_Options}}
+		</ul>
+		<ul class="question-crrct-option">
+			<label for="">{{Qform.Question_Correct_Option.label}} :</label>
+			{{Qform.Question_Correct_Option}}
+		</ul>
+		<ul class="question-ans_explain">
+			<label for="">{{Qform.Question_Ans_Explain.label}} :</label>
+			{{Qform.Question_Ans_Explain}}
+		</ul>
+		<ul class="question-submit ">
+			<button type="submit" class="btn">Submit</button>
+		</ul>
+	</div>
+</form>
+{% endblock userDashboardContent %}

@@ -1,0 +1,32 @@
+{% extends 'admin_portal/adminBase.html' %} {% block userDashboardContent %}
+
+<section class="main-dashboard">
+	<div class="total-counts-data">
+		<ul class="course-count" data-art="Courses">
+			<li>Total Courses we provide</li>
+			<li>{{Courses.count}}</li>
+		</ul>
+		<ul class="subjects-count" data-art="Subjects">
+			<li>With these many Subjects</li>
+			<li>{{Subjects.count}}</li>
+		</ul>
+		<ul class="topics-count" data-art="Topics">
+			<li>Contain multiple Topics</li>
+			<li>{{Topics.count}}</li>
+		</ul>
+		<ul class="questions-count" data-art="Questions">
+			<li>Have varity of Questions</li>
+			<li>{{Questions.count}}</li>
+		</ul>
+		<ul class="articles-count" data-art="Articles">
+			<li>Have varity of Articles</li>
+			<li>{{Articles.count}}</li>
+		</ul>
+	</div>
+	<div class=" ">
+
+	
+	</div>
+</section>
+
+{% endblock userDashboardContent %}

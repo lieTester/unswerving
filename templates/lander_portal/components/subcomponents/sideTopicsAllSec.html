@@ -1,0 +1,16 @@
+<div>
+            <ul class="tags-head-fr-all">
+                <li>
+                    <span>Try some questions on topics</span>
+                </li>
+            </ul>
+            <ul class="tags-body">
+                {% for topic in topics %}
+                <li>
+                    <a href='{% url "topics" topic.Topic_Id %}' class="">
+                        {{topic|lower|capfirst}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>

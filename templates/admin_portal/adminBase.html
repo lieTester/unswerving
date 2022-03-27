@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    {% load static %}
+    <link rel="icon" href="{% static '/img/favicon.ico' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href='{% static "/css/light.css" %}?{% now "U" %}' />
+    <link
+      rel="stylesheet"
+      href='{% static "/css/Dashboard/adminDashboard.css" %}?{% now "U" %}'
+    />
+    <!-- <script
+		src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"
+	></script> -->
+    <script src="{% static '/js/jquery-3.6.0.min.js' %}?{% now 'U' %}"></script>
+  </head>
+
+  <body>
+    <header>
+      <span contnt-atrib="lb"
+        ><a href="{% url 'login' %}">lb Dashboard</a></span
+      >
+      <ul>
+        {% if user.is_superuser %}
+        <li class="btn-dash">
+          <a href="{% url 'register' %}"
+            ><i class="fas fa-user-plus" style="padding: 2px 3px"></i
+          ></a>
+        </li>
+        {% endif %}
+        <li class="hole-bunch-optn">
+          <span class="btn-dash"><i class="fas fa-user"></i></span>
+          <ul class="usr-sub-menu">
+            <li></li>
+            <li>{{user.username|lower|capfirst}}</li>
+            <li class=""><a href="{% url 'logout' %}">Logout</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-icon">
+          <label for="open-ds-sb">
+            <i class="fa fa-bars"></i>
+          </label>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <section class="main-block">
+        <div class="dash-side-bar">
+          <script>
+            $(".nav-icon").click((e) => {
+              e.preventDefault();
+              $(".dash-side-bar").toggleClass("sidedash");
+            });
+          </script>
+
+          <ul>
+            <li><a href="{% url 'login' %}">Dashboard</a></li>
+            {% if user.is_superuser %}
+            <li><a href="{% url 'TopicSubjectCourse' %}">Data ( CST )</a></li>
+            {% endif %}
+
+            <li><a href="{% url 'QuestionsReview' %}">Questions</a></li>
+            <li><a href="{% url 'ArticlesReview' %}">Articles</a></li>
+            <li><a href="{% url 'UserUploads' %}">Userupload</a></li>
+            {% if user.is_superuser %}
+            <li>Previous Ask</li>
+            <li><a href="{% url 'MembersData' %}">Members</a></li>
+            <li><a href="/admin_django/">Django Dashboard</a></li>
+            {% endif %} 
+            {% block userDashboardNav %} 
+            {% endblock userDashboardNav %}
+          </ul>
+        </div>
+        <div class="dash-main-body">
+          {% block userDashboardContent %}{% endblock userDashboardContent %}
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <h1></h1>
+    <div></div>
+  </body>
+
+  <script src="{% static '/js/admin.js' %}?{% now 'U' %}"></script>
+</html>

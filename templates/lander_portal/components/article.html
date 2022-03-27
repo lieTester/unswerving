@@ -1,0 +1,27 @@
+{% extends 'lander_portal/base.html' %} {% load static %} {% load myDataFunct %}
+{%comment %} {% endcomment %} 
+{% block header %}
+	{% include "lander_portal/basicHeader.html" with courses=courses  subjects=subjects %}
+{% endblock header %}
+{%block content %}
+
+<section class="article-block">
+	<div class="article-main-block">
+		<!-- main-block -->
+		<ul>
+			<span class="article-name" course-name="{{article.Article_Id}}">
+				{{article}}</span>
+			<div class="article-dates">
+				<li>Date created : {{article.Article_Add_Time}}</li>
+				<li>Last update : {{article.Article_Update_Time}}</li>
+			</div>
+			<div class="article-detail ">{{article.Article_detail|safe}}</div>
+		</ul>
+	</div>
+	<div class="article-side-block">
+		{% include "lander_portal/components/subcomponents/sideArticleSec.html" with articles=articles %}
+		{% include "lander_portal/components/subcomponents/sideTopicsAllSec.html" with topics=topics %}
+	</div>
+</section>
+
+{% endblock content %}

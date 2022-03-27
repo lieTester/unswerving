@@ -1,0 +1,16 @@
+<div>
+    <ul class="tags-head-fr-all">
+        <li>
+            <span>All cources </span>
+        </li>
+    </ul>
+    <ul class="tags-body">
+        {% for course in courses %}
+        <li>
+            <a href='{% url "course" course.Exam_Type %}' class="">
+                {{course|lower|capfirst}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

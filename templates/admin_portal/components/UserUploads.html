@@ -1,0 +1,58 @@
+{% extends 'admin_portal/main.html' %}
+{% load dash_bd_data %}
+{% block userDashboardContent %}
+
+<div class="userupload_repo">
+    <div class="upload-files">
+        {% include "admin_portal/components/messages.html" %}
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %} {{UploadFile.media}}
+            <ul>
+                <li style="display: none;">
+
+                    {{UploadFile.Creater_Id}}
+                </li>
+                <li>
+                    <label for="" style="text-align: left;"> Select tilte :-</label>
+                    {{UploadFile.Image_Title}}
+
+                </li>
+                <li>
+                    {{UploadFile.Image_Name}}
+
+                </li>
+            </ul>
+            <ul>
+                <button class="btn" type="submit">Upload</button>
+            </ul>
+        </form>
+
+    </div>
+    <div class="all-upoad-img">
+        {% for upload in userUploads %}
+        <ul>
+            <li><a href="{{upload.Image_Name.url}}"><img src="{{upload.Image_Name.url}}" alt=""></a></li>
+            <li class="scroller">
+                <label for="">Title : </label>
+                <span> {{upload.Image_Title}}</span>
+            </li>
+            <li class="scroller url-value">
+                <label for="">Url : </label>
+                <span id="url-value">{{upload.Image_Name.url}}</span>
+            </li>
+        </ul>
+        {% endfor %}
+
+        <script>
+            $('.url-value').on('click', function () {
+                text = $(this).text().split(":")[1];
+                navigator.clipboard.writeText(text);
+
+                $(this).css({ 'background': 'var(--success-mbg)' });
+                setTimeout(function () { $('.url-value').css({ 'background': 'var(--secondry5)' }); }, 2000);
+            });
+        </script>
+    </div>
+</div>
+
+{% endblock userDashboardContent %}

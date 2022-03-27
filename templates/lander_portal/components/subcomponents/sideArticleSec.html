@@ -1,0 +1,16 @@
+<div>
+    <ul class="tags-head-fr-all">
+        <li>
+            <span>Recent Articles</span>
+        </li>
+    </ul>
+    <ul class="tags-body">
+        {% for article in articles %}
+        <li>
+            <a href='{% url "article" article.Article_Id %}' class="">
+                {{article|lower|capfirst}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,43 @@
+{% extends 'admin_portal/main.html' %} 
+{% load dash_bd_data %} 
+{% block userDashboardContent %}
+{% load static %}
+    <section>
+
+        <div class="members-detail">
+            {% for member in members %}
+                <div class="member-profile">
+                    <ul>
+                        <li>
+                            <span>
+                                <img src="{% static '/img/learn-2.svg' %}" alt="">
+                            </span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>Name : {{member}}</li>
+                        <li>Email : {{member.email}}</li>
+                        <li class="btn">
+                            <a href="?getmember={{member.id}} ">Detail</a>
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {% if member_ques or member_artcls %}
+            <ul>
+                <li>Subjects : {{member_subj|align_manyField}}</li>
+                <li>Topics   : {{member_tpcs|align_manyField}}</li>
+                <li>Articles : {{member_artcls.count}}</li>
+                <li>Questions: {{member_ques.count}}</li>
+            </ul>
+            {% endif %}
+            {% comment %} 
+            {% endcomment %}
+
+        </div>
+
+    </section>
+
+{% endblock userDashboardContent %}

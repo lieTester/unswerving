@@ -1,0 +1,21 @@
+{% extends 'admin_portal/main.html' %}
+{% load dash_bd_data %}
+{% block userDashboardContent %}
+<div class="questions_repo">
+
+    {% include "admin_portal/components/messages.html" %}
+</div>
+<div class="questions_repo add-ques-field">
+    <span class="qutn-add-btn btn-dash"><a href="{% url 'QuestionAddAlter' user.username %}">Add Question+</a></span>
+
+</div>
+<div class="questions_repo">
+    {% for question in member_ques %}
+    <ul>
+        <li><span>Q:</span> <a
+                href="{% url 'QuestionAddAlter' question.Question_Id %}">{{question.Question_detail|safe}}</a></li>
+    </ul>
+    {% endfor %}
+</div>
+
+{% endblock userDashboardContent %}

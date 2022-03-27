@@ -1,0 +1,47 @@
+{% extends 'admin_portal/main.html' %} {% load dash_bd_data %} 
+{% block userDashboardContent %}
+
+<form action="" method="POST" class="Article-add-form">
+	{% csrf_token %} {{Aform.media}}
+
+	<div class="data-entry-fields">
+		<!-- " -->
+		{% include "admin_portal/components/messages.html" %}
+		<ul class="form-data-should-hdn" style="display: none">
+			{{Aform.Tag_Id}} {{Aform.Creater_Id}}
+		</ul>
+		<ul class="article-heading">
+			<label for="">{{Aform.Article_Heading.label}} :</label>
+			{{Aform.Article_Heading}}
+		</ul>
+		<ul class="article-detail">
+			<label for="">{{Aform.Article_detail.label}} :</label>
+			{{Aform.Article_detail}}
+		</ul>
+		<ul class="choose-Tags">
+			<label for="">Select Tag Article represents :</label>
+			<input type="text" class="check_data_Nalter" id="for-tags-type" />
+			<input
+				type="checkbox"
+				name="for-tag"
+				id="tags_all"
+				class="acheck-for-dropdwn"
+			/>
+			<label for="tags_all" class="drop-downicon">
+				<i class="fas fa-caret-down"></i>
+			</label>
+			<div class="show-match scroller" id="tgs_all">
+				<!-- data is going tome come here with js -->
+				<!-- all tags find this  in js file====>>>>> function makefields(fieldata)-->
+			</div>
+			<div class="create-tags-match-tags">
+				<!-- data is going tome come here with js -->
+				<!-- tags are selected find this  in js file====>>>>> function add_icos(e)-->
+			</div>
+		</ul>
+		<ul class="article-submit">
+			<button type="submit" class="btn">Submit</button>
+		</ul>
+	</div>
+</form>
+{% endblock userDashboardContent %}

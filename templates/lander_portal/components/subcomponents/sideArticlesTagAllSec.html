@@ -1,0 +1,16 @@
+<div>
+    <ul class="tags-head-fr-all">
+        <li>
+            <span>Select article by tags</span>
+        </li>
+    </ul>
+    <ul class="tags-body">
+        {% for tag in tags %}
+        <li>
+            <a href='?relatedto={{tag.Tag_Id}}' class="">
+                {{tag|lower|capfirst}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

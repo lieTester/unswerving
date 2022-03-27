@@ -1,0 +1,119 @@
+{% extends 'admin_portal/main.html' %}
+{% load dash_bd_data %}
+
+{% block userDashboardContent %}
+
+<div>
+    {% include "admin_portal/components/messages.html" %}
+</div>
+
+
+<form action="" method="POST" class="cst-add-form">
+    {% csrf_token %}
+    {{Cform.media}}
+    <div class="course-field-block">
+        <ul>
+            <label for="">Enter any Course, Subject or Topic:-</label>
+            <input type="text" name="updateChoice" required>
+            <!-- <li>If you want to update click the input side button and select Course you want to update</li> -->
+        </ul>
+        <ul class="allSubmit">
+            <button type="submit" class="btn" name="update" value="Course">Update Course</button>
+            <button type="submit" class="btn" name="update" value="Subject">Update Subject</button>
+            <button type="submit" class="btn" name="update" value="Topic">Update Topic</button>
+            <!-- <button type="submit" class="btn">Update Course</button> -->
+        </ul>
+    </div>
+</form>
+
+<form action="" method="POST" class="cst-add-form">
+    {% csrf_token %}
+    <div class="course-field-block">
+        {{Cform.media}}
+        <ul class="form-data-should-hdn" style="display: none;">
+            {{Cform.Subj_Id}}
+        </ul>
+        <ul>
+            <label for="">Course Name:</label>
+            {{Cform.Exam_Type}}
+            <!-- <li>If you want to update click the input side button and select Course you want to update</li> -->
+        </ul>
+        <ul>
+            <label for="">Course full form :</label>
+            {{Cform.Exam_fullform}}
+        </ul>
+        <ul>
+            <label for="">Course profile :</label>
+            {{Cform.Exam_Image}}
+        </ul>
+        <ul>
+            <label for="">Course Description:</label>
+            {{Cform.Exam_Desc}}
+        </ul>
+        <ul class="subjects-refered">
+            <label for="">Course Subjects:</label>
+            <input type="text" class="check_data_Nalter" id="for-subjects-type" />
+            <input type="checkbox" name="for-course" id="subject_all" class="acheck-for-dropdwn" />
+            <label for="subject_all" class="drop-downicon">
+                <i class="fas fa-caret-down"></i>
+            </label>
+            <div class="show-match scroller" id="sb_all">
+                <!-- data is going tome come here with js -->
+                <!-- all courses find this  in js file====>>>>> function makefields(fieldata) -->
+            </div>
+            <div class="create-subjects-match-tags">
+                <!-- data is going tome come here with js -->
+                <!-- courses are selected find this  in js file====>>>>> function add_icos(e)-->
+            </div>
+        </ul>
+        <ul class="allSubmit">
+            <button type="submit" class="btn" name="addCourse" value="addCourse">Add Course</button>
+            <!-- <button type="submit" class="btn">Update Course</button> -->
+        </ul>
+    </div>
+</form>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="subject-field-block">
+        <ul class="form-data-should-hdn" style="display: none;">
+            {{Sform.Topic_Id}}
+        </ul>
+        <ul>
+            <label for="">Subject Name:</label>
+            {{Sform.Subj_Type}}
+        </ul>
+        <ul class="topics-refered">
+            <label for="">Subject Topics:</label>
+            <input type="text" class="check_data_Nalter" id="for-topics-type" />
+            <input type="checkbox" name="for-course" id="topic_all" class="acheck-for-dropdwn" />
+            <label for="topic_all" class="drop-downicon">
+                <i class="fas fa-caret-down"></i>
+            </label>
+            <div class="show-match scroller" id="ts_all">
+                <!-- data is going tome come here with js -->
+                <!-- all courses find this  in js file====>>>>> function makefields(fieldata) -->
+            </div>
+            <div class="create-topics-match-tags">
+                <!-- data is going tome come here with js -->
+                <!-- courses are selected find this  in js file====>>>>> function add_icos(e)-->
+            </div>
+        </ul>
+        <ul class="allSubmit">
+            <button type="submit" class="btn" name="addSubject" value="addSubject">Add Subject</button>
+            <!-- <button type="submit" class="btn">Update Subject</button> -->
+        </ul>
+    </div>
+</form>
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="topics-field-block">
+        <ul>
+            {{Tform}}
+        </ul>
+        <ul class="allSubmit">
+            <button type="submit" class="btn" name="addTopic" value="addTopic">Add Topics</button>
+        </ul>
+    </div>
+</form>
+
+{% endblock userDashboardContent %}

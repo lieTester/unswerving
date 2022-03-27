@@ -1,0 +1,728 @@
+body {
+	color: var(--primary1);
+	font-size: var(--font1);
+	font-family: var(--fam6);
+}
+:is(.questions_repo, .articles_repo) .messages > li {
+	padding: 10px 1% !important;
+}
+.messages {
+	position: relative;
+	width: inherit;
+	margin: 20px auto 10px !important;
+	font-family: var(--fam3);
+	background: transparent !important;
+}
+.messages > li {
+	padding: 10px 0px !important;
+	width: 100%;
+	display: block !important;
+	border-radius: 4px;
+	text-align: center !important;
+}
+.success {
+	color: var(--success-mfg);
+	background: var(--success-mbg);
+	border: 1px solid var(--success-mfg);
+}
+.error {
+	color: var(--error-mfg);
+	background: var(--error-mbg);
+	border: 1px solid var(--error-mfg);
+}
+.warning {
+	color: var(--warning-mfg);
+	background: var(--warning-mbg);
+	border: 1px solid var(--warning-mfg);
+}
+.info {
+	color: var(--info-mfg);
+	background: var(--info-mbg);
+	border: 1px solid var(--info-mfg);
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	height: 50px;
+	top: 0;
+	background-color: var(--primary3);
+	box-shadow: 1px 1px 10px var(--secondry4);
+	z-index: var(--index9);
+}
+header > span {
+	line-height: 50px;
+	margin-left: 5px;
+	font-size: var(--font2);
+	font-family: var(--fam5);
+}
+header > span > :is(a, a:hover, a:focus, a:active) {
+	display: inline;
+}
+header > ul {
+	float: right;
+	margin-right: 5px;
+	color: var(--primary2);
+	font-size: var(--font1);
+}
+header > ul > li {
+	position: relative;
+	float: left;
+	padding: 5px;
+	margin: 10px 2px;
+}
+.btn-dash,
+.nav-icon {
+	border-radius: 4px;
+	background: var(--secondry6);
+	font-weight: 600;
+	box-shadow: -0.1px 0.1px 3px var(--secondry4);
+}
+.nav-icon {
+	padding: 5px 10px;
+	perspective: 1000px;
+	transform-style: preserve-3d;
+}
+
+header > ul > li > span {
+	padding: 5px 10px;
+	border-radius: 50%;
+}
+header > ul > li > .usr-sub-menu {
+	position: absolute;
+	top: 20px;
+	right: -20px;
+	width: 250px;
+	height: 0px;
+	overflow: hidden;
+	visibility: hidden;
+	transition: var(--transE);
+	border-radius: 4px;
+	font-size: var(--font0_3);
+	font-weight: 700;
+	z-index: var(--index9);
+	/* background-color: aqua; */
+}
+.hole-bunch-optn:hover > .usr-sub-menu {
+	height: auto;
+	visibility: visible;
+	line-height: 40px;
+	top: 30px;
+}
+
+.usr-sub-menu > li {
+	position: relative;
+	text-align: center;
+	background-color: var(--primary4);
+	color: var(--primary3);
+}
+.usr-sub-menu > li:hover {
+	background-color: var(--primary1);
+}
+.usr-sub-menu > li:first-child {
+	height: 25px;
+	background: transparent;
+}
+.usr-sub-menu > li:nth-child(2) {
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+	z-index: var(--index9);
+}
+.usr-sub-menu > li:nth-child(2)::after {
+	position: absolute;
+	content: "";
+	width: 12px;
+	height: 12px;
+	right: 35px;
+	top: -5px;
+	z-index: var(--index-2);
+	transform: rotateZ(45deg);
+	border-radius: 2px;
+	background-color: inherit;
+}
+
+/* ################################################################# */
+/* ################################################################# */
+main {
+	width: 100%;
+	margin-top: 50px;
+	/* padding: 20px 0px; */
+}
+.main-block {
+	width: 100%;
+	display: flex;
+	margin: auto;
+	background-color: var(--secondry6);
+}
+.dash-side-bar {
+	position: fixed;
+	width: 300px !important;
+	left: -310px;
+	min-height: calc(100vh - 55px);
+	padding: 5px 0px 15px 5px;
+	background-color: var(--primary4);
+	z-index: var(--index9);
+	transition: var(--transL);
+}
+.sidedash {
+	left: 0px !important;
+}
+.dash-side-bar > ul {
+	line-height: 40px;
+}
+
+.dash-side-bar > ul > li {
+	margin: 5px 0px 1px;
+	color: var(--primary3);
+	padding-left: 20px;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+.dash-side-bar > ul > li:hover {
+	background-color: var(--primary1);
+}
+.active-nav {
+	background-color: var(--primary1);
+}
+.dash-main-body {
+	width: 100%;
+	height: fit-content;
+	min-height: calc(100vh - 50px);
+	margin: 0px auto;
+	text-align: center;
+}
+
+/* ################################################################################################################################################### */
+/* ################################################################################################################################################### */
+/* ############################################################ */
+/* Dashboard-main css */
+/* ############################################################ */
+.main-dashboard {
+	width: 95%;
+	margin: 20px auto 10px;
+}
+.total-counts-data,
+.all-upoad-img {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 20px;
+	padding: 10px 0px;
+}
+:is(.total-counts-data, .all-upoad-img) > ul {
+	position: relative;
+	text-align: center;
+	padding: 10px 0px;
+	border-radius: 4px;
+	overflow: hidden;
+	color: var(--primary3) !important;
+	transition: var(--transE);
+	box-shadow: 3px 3px 7px #656666, -5px -5px 10px #ffffff;
+}
+.total-counts-data > ul::after,
+.total-counts-data > ul::before {
+	position: absolute;
+	content: attr(data-art);
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	padding-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fontEXT3);
+	font-family: var(--fam5);
+	color: inherit;
+	background-color: inherit;
+	transition: var(--transE);
+}
+.total-counts-data > ul::after {
+	opacity: 0.5;
+	-webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+	clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+.total-counts-data > ul::before {
+	opacity: 0.3;
+	-webkit-clip-path: polygon(50% 0, 0 0, 0 100%, 50% 100%);
+	clip-path: polygon(50% 0, 0 0, 0 100%, 50% 100%);
+}
+.course-count {
+	background: var(--danger);
+}
+.subjects-count {
+	background: var(--warning);
+}
+.topics-count {
+	background: var(--info);
+}
+.questions-count {
+	background: var(--success);
+}
+.articles-count {
+	background: var(--secondry1);
+}
+.total-counts-data > ul:hover::after {
+	transform: translateX(50%);
+}
+.total-counts-data > ul:hover::before {
+	-webkit-clip-path: polygon(0 0, 70% 0, 70% 100%, 0 100%);
+	clip-path: polygon(0 0, 70% 0, 70% 100%, 0 100%);
+	content: "";
+	opacity: 0.7;
+	transform: translateX(-50%);
+}
+.total-counts-data > ul:hover > li:last-child {
+	opacity: 1;
+}
+.total-counts-data > ul > li {
+	font-size: var(--fam1_5);
+	font-weight: 900;
+	line-height: 30px;
+}
+.total-counts-data > ul > li:last-child {
+	line-height: 70px;
+	font-family: var(--fam5);
+	font-size: var(--fontEXT1);
+	opacity: 0;
+}
+/* ################################################################################################################################################### */
+/* ################################################################################################################################################### */
+
+/* ################################################################################################################################################### */
+/* ################################################################################################################################################### */
+/* quetions subjects courses topics all mixx css */
+/* ################################################################################################################################################### */
+/* ################################################################################################################################################### */
+
+/* member Questions show alter css below ###################### */
+:is(.questions_repo, .articles_repo, .userupload_repo, .data-entry-fields, .course-field-block, .subject-field-block, .topics-field-block) {
+	position: relative;
+	width: 90%;
+	margin: 50px auto;
+	padding: 0px 2%;
+}
+:is(.course-field-block, .subject-field-block, .topics-field-block) {
+	margin: 30px auto;
+	border-radius: 4px;
+	background-color: var(--primary3);
+}
+.questions_repo,
+.articles_repo {
+	width: 90%;
+	margin: 20px auto;
+}
+:is(.questions_repo, .articles_repo, .data-entry-fields, .course-field-block, .subject-field-block, .topics-field-block)
+	> ul {
+	position: relative;
+	width: 100%;
+	margin: 10px 0px;
+	padding: 10px 1%;
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	background: var(--primary3);
+	border-radius: 4px;
+}
+:is(.course-field-block, .subject-field-block, .topics-field-block) > ul {
+	padding: 0px 1%;
+}
+
+.add-ques-field,
+.add-atcls-field {
+	text-align: right;
+}
+
+:is(.questions_repo, .articles_repo) > :is(.qutn-add-btn, .artcl-add-btn) {
+	padding: 7px 20px;
+	display: inline-block;
+	border-radius: 20px;
+	color: var(--primary2);
+	background: var(--primary3);
+	transition: var(--transEIO);
+}
+:is(.qutn-add-btn, .artcl-add-btn):hover {
+	color: var(--primary3);
+	background: var(--secondry4);
+}
+:is(.questions_repo, .articles_repo) > ul > li {
+	width: inherit;
+	text-align: left;
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	align-content: center;
+}
+:is(.questions_repo, .articles_repo) > ul > li > span {
+	display: inline-block;
+	margin: 0px 10px;
+	color: var(--danger);
+	font-weight: 900;
+	font-size: var(--font1_2);
+}
+:is(.questions_repo, .articles_repo) > ul > li > a {
+	transition: var(--transEIO) !important;
+}
+:is(.questions_repo, .articles_repo) > ul > li > a:hover {
+	color: var(--primary2);
+	font-weight: 600;
+}
+/* Questions add alter css below ################################ */
+
+:is(.data-entry-fields, .course-field-block, .subject-field-block, .topics-field-block)
+	> ul
+	> input {
+	width: inherit;
+	padding: 0px 10px;
+	margin: 0px !important;
+	height: 30px;
+	border-radius: 4px;
+	overflow: hidden;
+	border: 2px solid var(--primary1);
+}
+/* this css for ck editor */
+.django-ckeditor-widget {
+	width: inherit !important;
+	font-family: var(--fam3) !important;
+}
+:is(.data-entry-fields, .course-field-block, .subject-field-block, .topics-field-block)
+	> ul
+	:is(input, iframe):is(:hover, :focus) {
+	border: 2px solid var(--primary2);
+	box-shadow: -0.5px 0.5px 3px var(--info), 0.5px -0.5px 3px var(--info);
+}
+:is(.data-entry-fields, .course-field-block, .subject-field-block, .topics-field-block)
+	> ul
+	> label {
+	display: inline-block;
+	width: inherit;
+	text-align: left;
+	/* background-color: red; */
+	padding: 10px 0px;
+	font-weight: 900;
+}
+
+.drop-downicon {
+	position: absolute !important;
+	width: 20px !important;
+	height: 10px;
+	right: 1.5%;
+	top: 56px;
+	padding: 5px !important;
+	display: flex !important;
+	justify-content: center;
+	align-items: center;
+	border-radius: 4px;
+	transition: var(--transL);
+}
+:is(.course-field-block, .subject-field-block, .topics-field-block)
+	> ul
+	.drop-downicon {
+	top: 46px;
+}
+.drop-downicon:hover {
+	background-color: var(--secondry6);
+}
+input:is([name="for-course"], [name="for-topic"], [name="for-tag"]) {
+	display: none;
+}
+/* Importan search filters css */
+
+.show-match,
+.create-course-match-tags,
+.create-tags-match-tags,
+.create-topics-match-tags,
+.create-subjects-match-tags {
+	margin-top: 5px;
+	border-radius: 4px;
+	overflow: hidden;
+	background-color: var(--secondry6);
+	transition: var(--transL);
+}
+.show-match {
+	height: 0px;
+	width: inherit;
+	overflow-y: auto;
+}
+
+.acheck-for-dropdwn:checked ~ .show-match {
+	height: 100px;
+}
+.show-match > li {
+	line-height: 30px;
+	font-size: var(--font0_3);
+	font-weight: 900;
+	transition: var(--transEIO);
+}
+.show-match > li:hover {
+	cursor: pointer;
+	background-color: var(--secondry4);
+}
+.create-course-match-tags,
+.create-tags-match-tags,
+.create-topics-match-tags,
+.create-subjects-match-tags {
+	font-size: var(--font0_3);
+	width: 100%;
+}
+:is(.create-course-match-tags, .create-tags-match-tags, .create-topics-match-tags, .create-subjects-match-tags)
+	> span {
+	position: relative;
+	float: left;
+	line-height: 20px;
+	margin: 10px 4px;
+	padding: 1px 10px 1px 5px;
+	text-align: center;
+	background-color: var(--primary3);
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	border-radius: 10px;
+}
+.fa-times-circle {
+	cursor: pointer;
+	padding: 0.2px;
+	margin-right: 5px;
+	border-radius: 50%;
+	background-color: var(--secondry6);
+	color: var(--secondry4);
+	font-weight: 100;
+}
+
+.question-submit,
+.article-submit {
+	background: inherit !important;
+	padding: 0px !important;
+	margin-bottom: 50px !important;
+}
+.allSubmit {
+	margin-left: 10px;
+	padding-bottom: 10px !important;
+}
+:is(.allSubmit, .question-submit, .article-submit) > button {
+	width: fit-content !important;
+	padding: 10px 50px;
+	border-radius: 4px;
+	font-size: var(--font1);
+	font-family: var(--fam5);
+	margin-right: 20px;
+}
+.allSubmit > button {
+	padding: 8px !important;
+}
+
+/* ################################################################################################################################################### */
+/* ################################################################################################################################################### */
+/* members css */
+.members-detail {
+	position: relative;
+	width: 90%;
+	margin: 100px auto 50px;
+	display: grid;
+	gap: 50px 20px;
+	padding: 10px 0px;
+	font-family: var(--fam2);
+}
+.members-detail > .member-profile {
+	position: relative;
+	text-align: center;
+	padding: 10px 0px 2px;
+	border-radius: 4px;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: space-between;
+	background: var(--primary3);
+	transition: var(--transE);
+	box-shadow: 1px 1px 4px var(--secondry4), -1px -1px 4px var(--primary3);
+}
+.member-profile > ul:first-child {
+	position: relative;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.member-profile > ul:first-child > li {
+	position: relative;
+	width: 60px;
+	height: 60px;
+	margin: -40px auto auto auto;
+	box-shadow: inset 0.5px 0.5px 2px var(--secondry4),
+		inset -0.5px -0.5px 2px var(--primary3);
+	border-radius: 50%;
+}
+.member-profile > ul:first-child > li::after {
+	position: absolute;
+	content: "";
+	top: -4px;
+	right: -4px;
+	bottom: -4px;
+	left: -4px;
+	border-radius: 50%;
+	box-shadow: 1px 1px 4px var(--secondry4), -2px -2px 4px var(--primary3);
+}
+.member-profile > ul:first-child > li > span {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	overflow: hidden !important;
+	border-radius: 50%;
+}
+.member-profile > ul:first-child > li > span img {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.member-profile > ul:last-child {
+	width: 100%;
+	/* background-color: red; */
+}
+.member-profile > ul:last-child > li {
+	width: 90%;
+	padding: 0px 10px;
+	text-align: left;
+}
+.member-profile > ul:last-child > li:last-child {
+	text-align: center;
+	margin: 5px auto;
+	padding: 2px 5px 3px;
+	border-radius: 4px;
+}
+
+/* ################################################################################################################################################### */
+/* ################################################################################################################################################### */
+
+/* ######################################################################## */
+/* ######################################################################## */
+/* userupload css */
+
+/* some css of this block is up at Dashboard-main css */
+/* .userupload_repo > .all-upoad-img {
+	display: grid;
+	} */
+.userupload_repo {
+	font-family: var(--fam3) !important;
+}
+.userupload_repo form {
+	width: 100%;
+	background: var(--primary3);
+	display: flex;
+	flex-wrap: wrap;
+	border-radius: 4px;
+	box-shadow: -0.1px 0.1px 2px var(--secondry4);
+	margin-bottom: 10px;
+	padding: 10px 0px;
+}
+.userupload_repo form li {
+	margin: 5px 10px;
+}
+.userupload_repo form input {
+	width: 100%;
+	border-radius: 2px;
+	padding: 2px;
+	border: 2px solid var(--secondry6);
+}
+.userupload_repo form ul {
+	margin: auto;
+}
+.userupload_repo form button {
+	padding: 5px 10px;
+	font-family: var(--fam1);
+	border-radius: 4px;
+	margin: auto;
+}
+
+.all-upoad-img > ul {
+	background: var(--primary3);
+	color: var(--primary1) !important;
+	box-shadow: -0.1px 0.1px 2px var(--secondry4);
+}
+.all-upoad-img > ul > li {
+	position: relative;
+	width: 90%;
+	margin: auto;
+	overflow-x: auto;
+	text-align: left;
+	background: var(--secondry5);
+	box-shadow: -0.1px 0.1px 2px var(--secondry4);
+	margin-top: 5px;
+	padding: 0px 5px;
+	display: flex;
+	cursor: pointer;
+	white-space: nowrap;
+}
+.all-upoad-img > ul > li:first-child {
+	width: auto;
+	overflow: hidden;
+	text-align: center !important;
+	box-shadow: none;
+	background: transparent;
+	display: block;
+}
+.all-upoad-img > ul > li > label {
+	padding-right: 4px !important;
+}
+.all-upoad-img > ul > li > a {
+	position: relative;
+	cursor: alias !important;
+	width: inherit;
+}
+.all-upoad-img > ul > li > a > img {
+	width: inherit;
+	height: 100px !important;
+}
+
+/* ################################################################################################################################################### */
+/* ################################################################################################################################################### */
+
+/* ######################################################################## */
+/* ######################################################################## */
+
+@media (min-width: 500px) {
+	.total-counts-data,
+	.members-detail,
+	.all-upoad-img {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	header > span {
+		margin-left: 20px;
+		font-size: var(--font3);
+	}
+}
+@media (min-width: 800px) {
+	header > ul > .hole-bunch-optn {
+		margin-right: 20px;
+	}
+	.dash-side-bar {
+		left: 0px;
+	}
+	.nav-icon {
+		display: none;
+	}
+	.dash-main-body {
+		width: calc(100% - 300px);
+		margin-left: 320px;
+	}
+
+	:is(.questions_repo, .articles_repo, .data-entry-fields, .course-field-block, .subject-field-block, .topics-field-block) {
+		width: 80%;
+	}
+	.show-match {
+		width: 60%;
+	}
+}
+@media (min-width: 1100px) {
+	.show-match {
+		width: 40%;
+	}
+	.total-counts-data,
+	.members-detail,
+	.all-upoad-img {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+@media (min-width: 1300px) {
+	.total-counts-data,
+	.members-detail,
+	.all-upoad-img {
+		grid-template-columns: repeat(4, 1fr);
+	}
+}

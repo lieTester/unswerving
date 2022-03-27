@@ -1,0 +1,104 @@
+{% extends 'lander_portal/base.html' %} 
+
+
+{% block homecontent %} 
+{% load static %}
+
+{% load myDataFunct %}
+
+<section class="front-head-block ">
+	<div class="header">
+		<div class="home-nav">
+			{% include 'lander_portal/components/headerInPart.html' with subMenu="home-nav-sub-li" %}
+		</div>
+		<div class="header-banner">
+			<li><img src="" alt="" srcset=""></li>
+			<li><img src="" alt="" srcset=""></li>
+		</div>
+	</div>
+</section>
+<section class="courses-articles-blocks container">
+	<ul>
+		{% comment %} <li>Courses to study</li> {% endcomment %}
+		<li>Mcq's</li>
+	</ul>
+	<div class="course-block">
+		{% for course in courses %}
+		<ul class="content">
+			<!-- its a box appear on hover and show extra detail of course -->
+			<li class="course-block-hover-show">
+				<div class="course-icon-area">
+					<ul class="course-cont-ico" take-data="{{course.Exam_Type|lower|capfirst}}">
+						<li>
+							<ul>
+								{{course.Exam_shortForm|lower|capfirst}}
+							</ul>
+						</li>
+						<li>
+							<ul>
+								{{course.Exam_shortForm|lower|capfirst}}
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<ul class="course-full-data">
+					<li class="course-optn">
+						<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+					</li>
+					<!-- <li class="course-opt-all">
+							<span>Views:</span>
+							<span>Topics:</span>
+							<span>Quetions:</span>
+						</li> -->
+					<li class="course-full">{{course.Exam_Type|lower|capfirst}}</li>
+					<div class="course-proceed">
+						<a href='{% url "course" course.Exam_Type %}' class="">
+							View deatil
+						</a>
+					</div>
+				</ul>
+			</li>
+			<!-- its a normal block show directly -->
+			<li class="course-block-normal-show">
+				<ul>
+					<img src="{{course.Exam_Image.url}}" alt="nothing" />
+				</ul>
+				<div>{{course.Exam_Type|lower|capfirst}}</div>
+			</li>
+		</ul>
+		{% endfor %}
+	</div>
+	<hr />
+	<ul>
+		<li>Articles to read</li>
+	</ul>
+	<div class="article-home-block">
+		{% for article in articles %}
+		<div class="main-articles-block">
+			<div>
+				<h3 class="article-heading"><a href="{% url 'article' article.Article_Id %}">{{article}}</a></h3>
+				<ul>
+					<li class="article-brief">
+						{{article.Article_detail|safe|truncatewords:30}}
+						<label class="continue" id="{{article.Article_Id}}">
+							<a class="continue" href="{% url 'article' article.Article_Id %}">continue</a>
+						</label>
+					</li>
+					<li class="tags">
+						<i class="fas fa-tags"></i>
+						Tags {% for tag in article.Tag_Id.all %}
+						<label style="margin-left: 10px">
+							<a href="allarticles?relatedto={{tag.Tag_Id}}">{{tag}}</a>
+						</label>
+						{% endfor %}
+					</li>
+				</ul>
+			</div>
+		</div>
+		{% endfor %}
+		<!-- <div class="recents-hipetag-block"></div> -->
+	</div>
+	<hr />
+</section>
+<!-- <section class="sidebar"></section>  -->
+{% endblock homecontent %}
