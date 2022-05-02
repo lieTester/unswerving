@@ -1,35 +1,40 @@
 {% load myDataFunct %}
 
 <div class="all-questions-block">
-	<span> Solve Questions related {{topicName|title}} :-</span>
-	{% for question in questions %}
-	<div class="single-question-block">
-		<ul class="question">
-			<li>Q:</li>
-			<li>{{question.Question_detail|safe}}</li>
-		</ul>
-		<ul class="question-opt">
-			<li>Options :-</li>
-			<li>
-				{% for opt in question.Question_Options|make_list %}
-				<label for="">
-					<input type="checkbox" name="" id="" />
-					<span>{{opt}}</span>
-				</label>
-				{% endfor %}
-			</li>
-		</ul>
-		<ul class="question-expalin-ans">
-			<input type="checkbox" name="ques-ans" id="{{question.Question_Id}}" class="show-hide-ans" />
-			<label for="{{question.Question_Id}}">Answer & Explanation </label>
-			<label>Views</label>
-			<label>Report</label>
-			<li class="ans-block">
-				<ul>
-					{{question.Question_Ans_Explain|safe}}
-				</ul>
-			</li>
-		</ul>
-	</div>
-	{% endfor %}
+  <span> Solve Questions related {{topicName|title}} :-</span>
+  {% for question in questions %}
+  <div class="single-question-block">
+    <ul class="question">
+      <li>Q:</li>
+      <li>{{question.Question_detail|safe}}</li>
+    </ul>
+    <ul class="question-opt">
+      <li>Options :-</li>
+      <li>
+        {% for opt in question.Question_Options|make_list %}
+        <label for="">
+          <input type="checkbox" name="" id="" />
+          <span>{{opt}}</span>
+        </label>
+        {% endfor %}
+      </li>
+    </ul>
+    <ul class="question-expalin-ans">
+      <input
+        type="checkbox"
+        name="ques-ans"
+        id="{{question.Question_Id}}"
+        class="show-hide-ans"
+      />
+      <label for="{{question.Question_Id}}">Answer & Explanation </label>
+      <label>Views</label>
+      <label>Report</label>
+      <li class="ans-block">
+        <ul>
+          {{question.Question_Ans_Explain|safe}}
+        </ul>
+      </li>
+    </ul>
+  </div>
+  {% endfor %}
 </div>
