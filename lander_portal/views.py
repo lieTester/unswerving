@@ -79,7 +79,7 @@ def subject_view(request, subject):
             # and here we are fetching the next page of quetions
             # and calculated some errors accordingly if occur we maintain
             # website stablity
-            question_page = Paginator(all_quetions, 1)
+            question_page = Paginator(all_quetions, 4)
 
             try:
                 quespage = request.GET.get('quespage')
