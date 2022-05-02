@@ -120,7 +120,7 @@ def question_view(request, course, subject, topic_question):
 
         all_quetions_filter = topic.question_data_set.filter(
             Exam_Id=course.Exam_Id)
-        question_page = Paginator(all_quetions_filter, 1)
+        question_page = Paginator(all_quetions_filter, 4)
         try:
             quespage = request.GET.get('quespage')
             qustn_page = question_page.page(quespage)
