@@ -1,5 +1,5 @@
 {
-    "version2":2,
+    "version":2,
     "builds": [{
         "src": "unswerving/wsgi.py",
         "use": "@vercel/python",
