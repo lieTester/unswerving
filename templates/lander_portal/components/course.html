@@ -40,7 +40,7 @@
 				{% for topic in subj_topics %}
 
 				<li style="list-style: disc" class="nowRenderthis" topic-id="{{topic.Topic_Id}}">
-					<a href='{% url "topic-questions" course_name.Exam_Type curnt_sbj.Subj_Type topic.Topic_Type %}'
+					<a href='{% url "topic-questions" course_name.Exam_Type curnt_sbj.Subj_Type topic.Topic_slug %}'
 						class="mrgn-auto">
 						{{topic}}
 					</a>

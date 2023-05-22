@@ -113,10 +113,10 @@ def subject_view(request, subject):
 def question_view(request, course, subject, topic_question):
     # pass
     try:
-        topic = Topics_comes.objects.get(Topic_Type=topic_question)
+        print(subject, topic_question)
+        topic = Topics_comes.objects.get(Topic_slug=topic_question)
         curnt_sbj = Subjects_toStudy.objects.get(Subj_Type=subject)
         course = Courses_Exams.objects.get(Exam_Type=course)
-        print(subject, topic_question)
 
         all_quetions_filter = topic.question_data_set.filter(
             Exam_Id=course.Exam_Id)
