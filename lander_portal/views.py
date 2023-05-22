@@ -116,7 +116,7 @@ def question_view(request, course, subject, topic_question):
         topic = Topics_comes.objects.get(Topic_Type=topic_question)
         curnt_sbj = Subjects_toStudy.objects.get(Subj_Type=subject)
         course = Courses_Exams.objects.get(Exam_Type=course)
-        # print(topic.Topic_Id, topic.Topic_Type)
+        print(subject, topic_question)
 
         all_quetions_filter = topic.question_data_set.filter(
             Exam_Id=course.Exam_Id)
@@ -133,7 +133,7 @@ def question_view(request, course, subject, topic_question):
         topic = qustn_page = ''
         print('An exception occurred question_view')
 
-    print(qustn_page)
+    # print(qustn_page)
     context = {
         "courses": main_data_list[0],
         "subjects": main_data_list[1],

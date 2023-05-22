@@ -22,6 +22,7 @@ class Tags_toMatch(models.Model):
 class Topics_comes(models.Model):
     Topic_Id = models.AutoField(primary_key=True)
     Topic_Type = models.CharField(max_length=100)
+    Topic_slug = models.SlugField(max_length=200)
     Topic_Desc=RichTextField(default='Add Topic Description')
     Topic_Add_Time = models.DateField(auto_now_add=True, auto_now=False)
     Topic_Update_Time = models.DateField(auto_now_add=False, auto_now=True)
