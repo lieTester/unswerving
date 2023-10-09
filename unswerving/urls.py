@@ -19,8 +19,7 @@ from django.conf import settings
 from django.urls import include, path
 from django.conf.urls.static import static, serve
 from django.urls.conf import re_path
-from lander_portal import views
-from admin_portal import views
+
 
 urlpatterns = [
 

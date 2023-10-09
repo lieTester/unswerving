@@ -48,5 +48,6 @@ __pypackages__/
 
 
 # Environments
-unswer-env/
+unswerenv/
+staticfiles/
 
